@@ -13,7 +13,15 @@ Repo outline:
 ## Project Outline
 ![alt text](https://github.com/wkzhuang/YouTube-Analysis/blob/main/Visualization/workflow.png?raw=true)
 
-## Steps to Run the Project 
+## Steps to Run the Project
+### Data File Instructions
+The supplementary Kaggle dataset we used is over 200MB and exceeds the file limit. Please download the csv file from Google Drive here:
+https://drive.google.com/file/d/1IY97XLu3CQJaIUuM38-ptdkvyeXCpxDc/view?usp=share_link
+
+Make sure you put the file in two of the folders:
+* In _YouTube API Data Retrieval_ folder directly
+* In _Web Interface_ folder, put in app/resources
+
 ### Data Retrieval From YouTube API Data 
 If you haven't installed Google Client API, you can do before running the script:
 ```bash
@@ -25,19 +33,27 @@ To retrieve trending video information and save to csv, run:
 ```bash
 python3 Trending_Video_Update.py
 ```
-The current day's data will be saved both to a separate csv file, and to the accumulated file.
+The current day's data will be saved both to a separate csv file, and to the accumulated file (adding to Kaggle dataset mentioned above).
 
 ### Web Interface on Play Framework
 Run the following command to start the application
 ```bash
 sbt run
 ```
+Or, in IntelliJ's sbt shell, input "run".
+
 Once it's done compiling, go to http://localhost:9000 in web browser. <br>
+
 The first index shows the trending video list on presentation day. (Generated csv was put in Resources folder) <br>
 
 The second index shows the prediction of average like counts in each category the next day. <br>
 
 The preprocessing and model training is incorporated into the application. It reads Data from CSV files, preprocess and train a machine learning model on the fly while user selects different category to predict.
+
+In more details, the model predicts the average like counts of the next day in each category based on trending data in the past two years.
+After category input by user from UI, a category will be sent to scala and the model will pick the right data to process, train and predict.
+Although limited, linear regression is applied in this project. It's quick in training and easy to modify, but suffers from overfitting in time series data
+
 
 ### Visualization
 Login to Databricks community edition. Navigate to the floating menu on the left side, select **Workspace**. Under workspace, from left to right, choose **Workspace -> Users**. Next to account email address, click the small down arrow and select **Import**. Import the *youtube_analysis_vis.html* file in the *"Visualization"* folder. <br>
