@@ -11,7 +11,7 @@ Repo outline:
 | *Presentation* | Contains the presentation documents |
 
 ## Project Outline
-
+![alt text](https://github.com/wkzhuang/YouTube-Analysis/blob/main/Visualization/workflow.png?raw=true)
 
 ## Steps to Run the Project 
 ### Data Retrieval From YouTube API Data 
@@ -47,3 +47,4 @@ If the shared upload file path doesn't work, manually upload the csv files by go
 
 
 ## Dashboard Results
+![alt text](https://github.com/wkzhuang/YouTube-Analysis/blob/main/Visualization/dashboard.png?raw=true)
