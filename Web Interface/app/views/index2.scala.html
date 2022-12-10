@@ -1,0 +1,24 @@
+@(csv_data: models.readToday, inArray: Seq[Seq[String]])(implicit request: MessagesRequestHeader)
+
+
+@main("Today's Trending Video") {
+<h1>Today's Trending Video</h1>
+
+}
+
+
+<table>
+    <thead>
+    <tr><th>Title</th><th>viewCount</th><th>likeCount</th><th>commentCount</th><th>category</th></tr>
+    </thead>
+    <tbody>
+    @for(row <- inArray) {
+        <tr>
+        @for(data <- row){
+            <td>@data</td>
+        }
+        </tr>
+    }
+    </tbody>
+</table>
+

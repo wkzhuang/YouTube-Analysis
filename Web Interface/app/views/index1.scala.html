@@ -1,0 +1,47 @@
+@(csv_data: models.DataReadFromCSV, results: Seq[Search], form: Form[SearchForm.Data], postUrl: Call, inArray: Seq[Seq[String]])(implicit request: MessagesRequestHeader)
+
+
+@main("Welcome to YouTube Trending Video Analysis Tool") {
+    <h1>YouTube Trending Video Analysis Tool</h1>
+
+    @* Global errors are not tied to any particular form field *@
+    @if(form.hasGlobalErrors) {
+        @form.globalErrors.map { error: FormError =>
+        <div>
+        @error.key: @error.message
+        </div>
+    }
+}
+
+
+    @helper.form(postUrl){
+        @helper.CSRF.formField
+
+
+        @helper.select(
+            field = form("category"),
+            options =  csv_data.getCategoryList.map(d => d.toString -> d.toString)
+        )
+
+        <button>Analyze</button>
+    }
+
+    <table border = "1">
+        <thead>
+            <tr><th>Category ID</th><th>View Count</th><th>Likes</th><th>Comment Count</th><th>Category</th><th>Date In Double</th>
+                <th>Prediction</th>
+        </thead>
+        <tbody>
+        @for(row <- inArray) {
+        <tr>
+            @for(data <- row){
+
+                    <td>@data</td>
+
+            }
+        </tr>
+        }
+        </tbody>
+    </table>
+
+}
