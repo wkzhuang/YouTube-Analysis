@@ -59,7 +59,7 @@ Although limited, linear regression is applied in this project. It's quick in tr
 Login to Databricks community edition. Navigate to the floating menu on the left side, select **Workspace**. Under workspace, from left to right, choose **Workspace -> Users**. Next to account email address, click the small down arrow and select **Import**. Import the *youtube_analysis_vis.html* file in the *"Visualization"* folder. <br>
 
 If needed to re-run every cell in the entire notebook, it will be required to create a new cluster and attach to the notebook in order to run. On the upper right corner, next to "Run All", click and create a new resource. Runtime version is 10.4 LTS (includes Apache Spark 3.2.1, Scala 2.12).
-If the shared upload file path doesn't work, manually upload the csv files by going to ** File -> Upload Data to DBFS **
+If the shared upload file path doesn't work, manually upload the csv files by going to **File -> Upload Data to DBFS**
 
 
 ## Dashboard Results
